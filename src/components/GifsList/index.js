@@ -1,13 +1,15 @@
 import React,{Component} from 'react';
 import '../styles/GifsList.css';
 
+import {Link} from 'react-router-dom';
+
 class GifsList extends Component{
     state={
         ocultar:true
     }
     render(){
         return(
-           <div className="contanier">
+           <div className="contanier d-flex flex-column justify-content-center align-items-center">
                <div className="row" >      
                 {
                     this.props.gifs.map(gif =>{
@@ -20,7 +22,13 @@ class GifsList extends Component{
                     })
                     }
                 </div>
-                <input type="button"  onClick={this.props.mostrarMas} className={this.props.ocultar==true?'ocultar':''} value="Ver Mas" />
+                <div className="row">
+                    <div className="col-12">
+                         <button  type="button" onClick={this.props.mostrarMas} className={`btn btn-secondary `+(this.props.ocultar==true?'ocultar':'')}>Ver Mas</button>
+                    
+                    </div>
+                </div>
+               
            </div>
         )
     }
